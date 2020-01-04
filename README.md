@@ -7,7 +7,7 @@ Unique system for any difficult level projects.
 - make same components implemented in the different ways (tabs with preloader or without)
 - should be priovided imlementation for _JavaScript_ and _TypeScript_
 
-For more details see [documentation](www.site.com).
+For more details see [documentation](http://www.site.com/).
 
 ## Site
 - documentation should be on first page
