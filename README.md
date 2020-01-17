@@ -1,6 +1,6 @@
 # arc-dls
 
-Unique system for any difficult level projects.
+Unique system for any difficulty level projects.
 
 ## Targets
 - make it possible to provide custom styles
@@ -12,3 +12,6 @@ For more details see [documentation](http://www.site.com/).
 ## Site
 - documentation should be on first page
 - __About Us__ page should be as secondary page
+
+## Styles
+- styles should have seperated package (it will contain different style variation libs)
