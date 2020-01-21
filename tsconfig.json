@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
-    "outDir": "build/lib",
+    "outDir": "build",
     "module": "commonjs",
     "target": "es5",
     "lib": ["es5", "es6", "es7", "es2017", "dom"],
-    "sourceMap": true,
     "allowJs": false,
     "jsx": "react",
     "moduleResolution": "node",
     "rootDirs": ["core", "stories"],
-    "baseUrl": "src",
+    "baseUrl": "core",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -21,8 +20,12 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "declarationMap": false,
+    "inlineSourceMap": false,
+    "sourceMap": false,
+    "rootDir": "core"
   },
-  "include": ["core/**/*"],
-  "exclude": ["node_modules"]
+  "include": ["core/**/*", "core/**/package.json"],
+  "exclude": ["node_modules", "core/**/*.stories.tsx"]
 }

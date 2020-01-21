@@ -1,0 +1,4 @@
+
+- write isModified functions with export of file names (element names) in the list
+last modify check date date
+save that date

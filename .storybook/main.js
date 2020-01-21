@@ -15,6 +15,14 @@ module.exports = {
     });
 
     config.module.rules.push({
+      resolve: {
+        alias: {
+          '@arc-dls/theme-default': path.resolve(__dirname, './core/themes/theme-default'),
+        }
+      }
+    });
+    
+    config.module.rules.push({
       test: /\.scss$/,
         use: [
           {

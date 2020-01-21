@@ -8,3 +8,6 @@ _
 
 # NPM Modules
 node_modules
+
+# build folder
+build

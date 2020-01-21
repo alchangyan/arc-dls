@@ -1,14 +1,17 @@
 import * as React from 'react';
 import Tab from './tab';
-import * as config from '../../../arc.config.json';
-const { theme } = config;
-import (`../../styles/${theme}/Tabs/Tabs.scss`);
 
 export type TabsProps = {
   children: React.ReactElement | React.ReactElement[],
+  theme?: string,
 };
 
-export const Tabs = ({children}: TabsProps) => {
+export const Tabs = ({children, theme}: TabsProps) => {
+  React.useMemo(() => {
+    theme = theme || 'default';
+    import (`@arc-dls/theme-${theme}/Tabs/Tabs.scss`);
+  },[theme]);
+
   const [active, setActive] = React.useState(0);
   const childrenArray = children instanceof Array ? children : [children];
   const tabData = React.useCallback(() => childrenArray.map((child) => {
