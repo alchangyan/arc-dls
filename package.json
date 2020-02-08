@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "start-storybook",
     "publish:npm": "node scripts/deploy.js",
-    "update:themes": "node-sass -q core/themes -o build/themes",
-    "update:tabs": "yarn update:version components/Tabs && yarn update:version themes/theme-default && tsc && yarn update:themes"
+    "update:themes": "node-sass -q core/themes -o build/themes"
   },
   "repository": {
     "type": "git",

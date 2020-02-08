@@ -9,7 +9,8 @@ export type TabsProps = {
 export const Tabs = ({children, theme}: TabsProps) => {
   React.useMemo(() => {
     theme = theme || 'default';
-    import (`@arc-dls/theme-${theme}/Tabs/Tabs.scss`);
+    // import (`@arc-dls/theme-${theme}/Tabs/Tabs.scss`);
+    import (`../../themes/theme-${theme}/Tabs/Tabs.scss`);
   },[theme]);
 
   const [active, setActive] = React.useState(0);
