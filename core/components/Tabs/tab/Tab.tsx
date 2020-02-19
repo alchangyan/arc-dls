@@ -9,8 +9,11 @@ export type TabProps = {
 export const Tab: React.FC<TabProps> = ({children, theme}) => {
   React.useMemo(() => {
     theme = theme || 'default';
-    // import (`@arc-dls/theme-${theme}/Tabs/Tab.css`);
-    import (`../../../themes/theme-${theme}/Tabs/Tab.css`);
+    try {
+      if (theme !== 'custom') import (`../../../themes/theme-${theme}/Tabs/Tab.scss`);
+    } catch(err) {
+      console.log('Not able to import styles. Please check is installed current theme.', err);
+    }
   },[theme]);
 
   return (

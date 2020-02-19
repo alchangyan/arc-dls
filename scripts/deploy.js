@@ -16,12 +16,14 @@ const run = async () => {
   processFlowHandler(await copyFiles(), spinner);
   spinner.start('Transpiling files...');
   processFlowHandler(await transpileTS(), spinner);
-  spinner.start('Transpiling files...');
+  spinner.start('Updating styles...');
   processFlowHandler(await handleStyles(), spinner);
-  // spinner.start('Updating version in package.json file...');
-  // const deploymentData = processFlowHandler(await updatePackageJSON(args), spinner);
-  // spinner.start('Publishing to npm registry...');
-  // processFlowHandler(await deploy(deploymentData), spinner);
+  spinner.start('Updating version in package.json file...');
+  setTimeout(async () => {
+    const deploymentData = processFlowHandler(await updatePackageJSON(args), spinner);
+    spinner.start('Publishing to npm registry...');
+    processFlowHandler(await deploy(deploymentData), spinner);
+  }, 2000);
 }
 
 console.clear();

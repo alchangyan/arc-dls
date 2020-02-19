@@ -9,8 +9,11 @@ export type TabsProps = {
 export const Tabs = ({children, theme}: TabsProps) => {
   React.useMemo(() => {
     theme = theme || 'default';
-    // import (`@arc-dls/theme-${theme}/Tabs/Tabs.scss`);
-    import (`../../themes/theme-${theme}/Tabs/Tabs.scss`);
+    try {
+      if (theme !== 'custom') import (`../../themes/theme-${theme}/Tabs/Tabs.scss`);
+    } catch(err) {
+      console.log('Not able to import styles. Please check is installed current theme.', err);
+    }
   },[theme]);
 
   const [active, setActive] = React.useState(0);

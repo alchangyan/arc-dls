@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 const updatePackageJSON = async args => {
-  const componentFolderPath = path.join(__dirname, '../../core/', args[0]);
-  const componentPackageJSONPath = path.join(__dirname, '../../core/', args[0], '/package.json');
+  const componentFolderPath = path.join(__dirname, '../../build/', args[0]);
+  const componentPackageJSONPath = path.join(__dirname, '../../build/', args[0], '/package.json');
 
   let msg = [''];
 
