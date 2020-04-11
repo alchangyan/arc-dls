@@ -1,12 +1,12 @@
 const fs = require('fs');
 const { execSync } = require('child_process');
-const recursiveSearch = require('./utils/recursiveSearch');
+const recursiveSearch = require('./recursiveSearch');
 
 const handleStyles = async () => {
   let msg = ['Styles are updated.'];
   
   try {
-    execSync('node-sass -q core/themes -o build/themes');
+    execSync('node-sass -q src/themes -o build/themes');
     recursiveSearch('build/', (err, jsFiles) => {
       if (err) throw err;
       // founded all JS files from build

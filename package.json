@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "start-storybook",
-    "publish:npm": "node scripts/deploy.js",
-    "update:themes": "node-sass -q core/themes -o build/themes"
+    "test": "reset && jest",
+    "test:silent": "reset && jest --silent --noStackTrace",
+    "cli": "node scripts/cli.js",
+    "update:themes": "node-sass -q src/themes -o build/themes"
   },
   "repository": {
     "type": "git",
@@ -36,15 +38,20 @@
   },
   "devDependencies": {
     "@storybook/addon-info": "^5.3.3",
-    "@types/jest": "^24.0.25",
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jest": "^25.1.4",
     "awesome-typescript-loader": "^5.2.1",
     "babel-preset-react-app": "^9.1.0",
     "css-loader": "^3.4.2",
-    "jest": "^24.9.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "inquirer": "^7.0.6",
+    "jest": "^25.1.0",
     "node-sass": "^4.13.1",
     "react-docgen-typescript-loader": "^3.6.0",
     "style-loader": "^1.1.2",
-    "ts-jest": "^24.3.0",
+    "ts-jest": "^25.2.1",
     "typescript": "^3.7.5"
   }
 }

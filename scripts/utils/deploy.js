@@ -1,25 +1,24 @@
-const { execSync } = require('child_process');
-const { writeFileSync } = require('fs');
+const ora = require('ora');
 
-const deploy = async ({
-  componentFolderPath,
-  componentPackageJSONPath,
-  oldPackageJSON,
-}) => {
-  let msg = [`${componentFolderPath} successfully published!`];
+const copyFiles = require('./copyFiles');
+const transpileTS = require('./transpileTS');
+const processFlowHandler = require('./processFlowHandler');
+const handleStyles = require('./handleStyles');
+const updatePackageJSON = require('./updatePackageJSON');;
 
-  try {
-    execSync(`npm publish ${componentFolderPath}`);
-  } catch(err) {
-    msg = ['Deployment error.', err];
-
-    try {
-      writeFileSync(componentPackageJSONPath, oldPackageJSON)
-    } catch(revertErr) {
-      msg = ['Deployment and reverting error.', err];
-    }
-  }
-  return msg;
-};
+const deploy = async (component, versonType) => {
+  let spinner = ora().start('Copying README.md files...');
+  processFlowHandler(await copyFiles(), spinner);
+  spinner.start('Transpiling files...');
+  processFlowHandler(await transpileTS(), spinner);
+  spinner.start('Updating styles...');
+  processFlowHandler(await handleStyles(), spinner);
+  spinner.start('Updating version in package.json file...');
+  setTimeout(async () => {
+    const deploymentData = processFlowHandler(await updatePackageJSON(component, versonType), spinner);
+    spinner.start('Publishing to npm registry...');
+    processFlowHandler(await deploy(deploymentData), spinner);
+  }, 2000);
+}
 
 module.exports = deploy;

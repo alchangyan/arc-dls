@@ -1,6 +1,6 @@
 const path = require('path');
 module.exports = {
-  stories: ["../core/**/*.stories.tsx"],
+  stories: ["../src/**/*.stories.tsx"],
   webpackFinal: async config => {
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
@@ -17,7 +17,7 @@ module.exports = {
     config.module.rules.push({
       resolve: {
         alias: {
-          '@arc-dls/theme-default': path.resolve(__dirname, './core/themes/theme-default'),
+          '@arc-dls/theme-default': path.resolve(__dirname, './src/themes/theme-default'),
         }
       }
     });

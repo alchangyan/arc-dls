@@ -1,17 +1,19 @@
 const copyFiles = require('./copyFiles');
 const transpileTS = require('./transpileTS');
 const processFlowHandler = require('./processFlowHandler');
-const parseProcessArgs = require('./parseProcessArgs');
 const updatePackageJSON = require('./updatePackageJSON');
-const deploy = require('./deploy');
 const handleStyles = require('./handleStyles');
+const buildCLIQuestion = require('./buildCLIQuestion');
+const getCurrentVersion = require('./getCurrentVersion');
+const deploy = require('./deploy');
 
 module.exports = {
   copyFiles,
   transpileTS,
   processFlowHandler,
-  parseProcessArgs,
   updatePackageJSON,
-  deploy,
   handleStyles,
+  buildCLIQuestion,
+  getCurrentVersion,
+  deploy,
 };

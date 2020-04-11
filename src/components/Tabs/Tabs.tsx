@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Tab from './tab';
 
+const tabActiveClass = 'arc-tabs__panel__button_active';
+
 export type TabsProps = {
   children: React.ReactElement | React.ReactElement[],
   theme?: string,
@@ -34,6 +36,7 @@ export const Tabs = ({children, theme}: TabsProps) => {
       <div className="arc-tabs__panel">
         {tabData.map((tabData, index) => (
           <div
+            className={active === index ? tabActiveClass : ''}
             key={index}
             data-index={index}
             onClick={handleClick}

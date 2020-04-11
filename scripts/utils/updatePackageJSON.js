@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const updatePackageJSON = async args => {
-  const componentFolderPath = path.join(__dirname, '../../build/', args[0]);
-  const componentPackageJSONPath = path.join(__dirname, '../../build/', args[0], '/package.json');
+const updatePackageJSON = async (component, versonType) => {
+  const componentFolderPath = path.join(__dirname, '../../build/', component);
+  const componentPackageJSONPath = path.join(__dirname, '../../build/', component, '/package.json');
 
   let msg = [''];
 
@@ -16,8 +16,9 @@ const updatePackageJSON = async args => {
           const currentVersion = oldPackageJSON.match(versionRegExp)[0];
           let [ major, minor, patch ] = currentVersion.split('.');
     
-          // if updating patch
           const oldVersion = [major, minor, patch].join('.');
+          // if updating patch
+          console.log(versonType)
           const newVersion = [major, minor, ++patch].join('.');
           const newPackageJSON = oldPackageJSON.replace(oldVersion, newVersion);
   
