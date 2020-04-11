@@ -1,8 +1,8 @@
 {
-  "name": "@arc-dls/tabs",
-  "version": "0.0.107",
-  "description": "",
-  "main": "index.js",
-  "author": "",
-  "license": "ISC"
+    "name": "@arc-dls/tabs",
+    "version": "0.1.0",
+    "description": "",
+    "main": "index.js",
+    "author": "",
+    "license": "ISC"
 }

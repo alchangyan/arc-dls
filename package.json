@@ -7,7 +7,7 @@
     "dev": "start-storybook",
     "test": "reset && jest",
     "test:silent": "reset && jest --silent --noStackTrace",
-    "cli": "node scripts/cli.js",
+    "cli": "find . -name \".DS_Store\" -delete && node scripts/cli.js",
     "update:themes": "node-sass -q src/themes -o build/themes"
   },
   "repository": {

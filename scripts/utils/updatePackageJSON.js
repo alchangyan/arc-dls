@@ -19,16 +19,25 @@ const updatePackageJSON = async (component, versonType) => {
           const oldVersion = [major, minor, patch].join('.');
           // if updating patch
           console.log(versonType)
-          const newVersion = [major, minor, ++patch].join('.');
+          let newVersion = oldVersion;
+
+          switch (versonType) {
+            case 'patch':
+              newVersion = [major, minor, ++patch].join('.');
+              break;
+            case 'minor':
+              newVersion = [major, ++minor, 0].join('.');
+              break;
+            case 'major':
+              newVersion = [++major, 0, 0].join('.');
+              break;
+          };
+          
           const newPackageJSON = oldPackageJSON.replace(oldVersion, newVersion);
   
           try {
             fs.writeFileSync(componentPackageJSONPath, newPackageJSON);
-            msg = [`package.json updated. Version ${newVersion}`, null, {
-              componentFolderPath,
-              componentPackageJSONPath,
-              oldPackageJSON,
-            }];
+            msg = [`package.json updated. Version ${newVersion}`, null, {newPackageJSON, componentFolderPath}];
           } catch(err) {
             msg[0] = ('package.json write error', err);
           }
