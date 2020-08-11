@@ -1,14 +1,17 @@
 {
   "compilerOptions": {
     "outDir": "build",
-    "module": "commonjs",
-    "target": "es5",
+    "module": "esnext",
+    "target": "es6",
     "lib": ["es5", "es6", "es7", "es2017", "dom"],
     "allowJs": false,
     "jsx": "react",
     "moduleResolution": "node",
     "rootDirs": ["src", "stories"],
     "baseUrl": "src",
+    "paths": {
+      "@arc-dls/*": ["./*"]
+    },
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,

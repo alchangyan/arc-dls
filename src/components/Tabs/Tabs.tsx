@@ -1,30 +1,22 @@
 import * as React from 'react';
 import Tab from './tab';
+import { useTheme } from '@arc-dls/core/utils/useTheme';
 
-const tabActiveClass = 'arc-tabs__panel__button_active';
+const tabActiveClass = 'arc-tabs__panel__pane_active';
 
 export type TabsProps = {
   children: React.ReactElement | React.ReactElement[],
-  theme?: string,
 };
 
-export const Tabs = ({children, theme}: TabsProps) => {
-  React.useMemo(() => {
-    theme = theme || 'default';
-    try {
-      if (theme !== 'custom') import (`../../themes/theme-${theme}/Tabs/Tabs.scss`);
-    } catch(err) {
-      console.log('Not able to import styles. Please check is installed current theme.', err);
-    }
-  },[theme]);
-
+export const Tabs = ({children}: TabsProps) => {
+  useTheme('/Tabs/Tabs.scss');
   const [active, setActive] = React.useState(0);
   const childrenArray = children instanceof Array ? children : [children];
   const tabData = React.useCallback(() => childrenArray.map((child) => {
     const { props } = child;
     return props.tab;
   }), [childrenArray])();
-
+  
   const handleClick = (e:React.MouseEvent) => {
     const tab = e.target as HTMLDivElement;
     const key = tab.getAttribute('data-index');

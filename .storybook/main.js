@@ -14,13 +14,10 @@ module.exports = {
       ],
     });
 
-    config.module.rules.push({
-      resolve: {
-        alias: {
-          '@arc-dls/theme-default': path.resolve(__dirname, './src/themes/theme-default'),
-        }
-      }
-    });
+    config.resolve.alias = {
+      '@arc-dls': path.resolve(__dirname, '../src'),
+    };
+
     
     config.module.rules.push({
       test: /\.scss$/,
